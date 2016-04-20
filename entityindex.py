@@ -35,3 +35,5 @@ class Entity(dict):
 			self[key] = value
 		else:
 			super().__setattr__(key, value)
+
+
