@@ -1,28 +1,22 @@
 class EntityIndex(list):
-	def __init__(self):
-		super().__init__()
-		self.append(Entity())
 
 	def new_entity(self):
-		for e in self:
-			if "eid" not in e:
-				e.allocate()
-				return e
 		new_e = Entity()
-		new_e.allocate()
 		self.append(new_e)
 		return new_e
 
 
 class Entity(dict):
 	_id = 0
-
+	
 	def __init__(self):
 		super().__init__()
-
-	def allocate(self):
-		self["eid"] = self._id
+		self._id = self._id
 		type(self)._id += 1
+
+	@property
+	def id(self):
+		return self._id
 
 	def __getattr__(self, key):
 		if key in self:
@@ -35,4 +29,12 @@ class Entity(dict):
 			self[key] = value
 		else:
 			super().__setattr__(key, value)
+
+	def __eq__(self, other):
+		if type(self) == type(other):
+			return self.id == other.id
+
+	def __hash__(self):
+		return hash((type(self), self.id))
+
 
