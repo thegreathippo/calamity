@@ -5,7 +5,7 @@ import blinker
 
 class Cycle(Registry):
   def __init__(self):
-    self.world = EntityIndex()
+    self.index = EntityIndex()
     self.running = True
     blinker.signal("start").connect(self.start)
     blinker.signal("stop").connect(self.stop)
