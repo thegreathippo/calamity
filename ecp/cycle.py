@@ -14,7 +14,9 @@ class Cycle(Registry):
   def start(self, e=None):
     blinker.signal("starting").send(self)
     while self.running:
+      blinker.signal("setting up").send(self)
       self.tick()
+      blinker.signal("tearing down").send(self)
     blinker.signal("stopping").send(self)
   
   def tick(self):
