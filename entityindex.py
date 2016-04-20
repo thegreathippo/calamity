@@ -36,4 +36,3 @@ class Entity(dict):
 		else:
 			super().__setattr__(key, value)
 
-
