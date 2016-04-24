@@ -1,4 +1,4 @@
-class BaseProcess:
+class BaseProcess(object):
     priority = 0
     required = {}
 
@@ -12,7 +12,7 @@ class BaseProcess:
         pass
   
 
-class Registry:
+class Registry(object):
     def __init__(self):
         self.processes = list()
 
