@@ -1,3 +1,3 @@
-from .cycle import Cycle
+from .core import Cycle
 
 
