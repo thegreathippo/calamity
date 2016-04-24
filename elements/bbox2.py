@@ -57,7 +57,7 @@ class BBox2:
 		else:
 			_x, _y = x, y
 		if (_x < self.x or _y < self.y or _x > (self.x + self.w) or
-				_y > (self.y + self.h)):
+			_y > (self.y + self.h)):
 			return False
 		return True
 
@@ -76,4 +76,3 @@ class BBox2:
 	@property
 	def h(self):
 		return self._h
-
